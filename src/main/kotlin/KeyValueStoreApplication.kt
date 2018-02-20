@@ -1,4 +1,5 @@
 import repository.InMemoryKeyValueRepository
+import service.ExpireKeyService
 import service.KeyValueStoreService
 import userInterface.CommandLineController
 
@@ -14,7 +15,7 @@ import userInterface.CommandLineController
 fun main(args: Array<String>){
 
     val inMemoryKeyValueRepository = InMemoryKeyValueRepository()
-    val keyValueStoreService = KeyValueStoreService(inMemoryKeyValueRepository)
+    val keyValueStoreService = KeyValueStoreService(inMemoryKeyValueRepository, ExpireKeyService)
     val commandLineController = CommandLineController(keyValueStoreService)
 
     commandLineController.start()
