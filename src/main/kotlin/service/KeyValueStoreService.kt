@@ -7,11 +7,11 @@ class KeyValueStoreService(private val keyValueRepository: KeyValueRepository) {
         return keyValueRepository.add(key, value)
     }
 
-    fun get(key: String) : String {
-        return keyValueRepository.find(key) ?: throw NoSuchElementException("key = $key")
+    fun get(key: String) : String? {
+        return keyValueRepository.find(key)
     }
 
-    fun del(key: String) : Boolean {
+    fun del(key: String) : String? {
         return keyValueRepository.delete(key)
     }
 
